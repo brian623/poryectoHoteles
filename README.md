@@ -94,22 +94,28 @@ _Abrimos una terminal de comandos o CMD, luego en ella, clonamos el repositorio 
 git clone https://github.com/brian623/poryectoHoteles.git
 ```
 _Allí quedarán todos los archivos de nuestro aplicativo, junto con el backup de la base de datos_
+
 _Abra pgAdmin4, para gestionar la base de datos, en la carpeta BD de nuestro proyecto, encontrará un archivo llamado "crud_hotels.sql", este es el backup_
+
 _En pgAdmin vamos a crear la BD así:_
 
+1)
 ![image](https://user-images.githubusercontent.com/48931107/228146539-7f51bae5-832a-463e-a968-92af656431e4.png)
 
+2)
 ![image](https://user-images.githubusercontent.com/48931107/228150109-569483ad-08e0-4afd-a1c4-10c741e9fc38.png)
 
 _Ya creada la base de datos, procedemos a restaurarla de la siguiente forma:_
 
+1)
 ![image](https://user-images.githubusercontent.com/48931107/228150308-2ffbf5b3-04c6-4661-a33f-5ce46ba4f1bc.png)
 
+2)
 ![image](https://user-images.githubusercontent.com/48931107/228149560-5ed86f6a-0118-4633-9ec5-df8c48326f34.png)
 
 _Listo!! Nuestra base datos ya esta restaurada para usar en nuestro proyecto_
 
-#### Instalar dependencias y  ⚙️
+#### Instalar dependencias  ⚙️
 
 _Abrimos una terminal o consola de comandos y ejecutamos:
 ```
@@ -164,7 +170,7 @@ _Abra su navegador y en una pestaña vaya a:_
 ```
 http://localhost:3000/
 ```
-#Todo listo! Ya puedes usar la aplicación!
+# Todo listo! Ya puedes usar la aplicación!
 ## Construido con 🛠️
 
 
