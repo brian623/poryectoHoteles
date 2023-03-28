@@ -6,27 +6,31 @@ Crud en laravel + React para ingresar datos de hoteles, como información básic
 ### Pre-requisitos 📋
 
 
-Instalar Composer 
+_Instalar Composer_
+
 Se requiere este paquete de instalación que nos facilita la instalación de Laravel, ya que desde su linea de comandos (CLI) se gestionará este proceso.
 Link de Instalación:
 ```
 https://getcomposer.org/doc/00-intro.md
 ```
 
-Instalar WampServer o Xampp
+_Instalar WampServer o Xampp_
+
 Se requiere un programa que genere un servidor local, recomendamos alguno de estos dos, pero puede ser el que más desee. Con este programa, instalaremos Apache,
 como servidor, y PHP, que son herramientas que permitiran la conexión de nuestro aplicativo desde la base de datos hacia el backend y posteriormente al frontend.
 Si ya tiene alguno instalado, asegurese de tener la version de PHP superior a 8.0, si no es así, actualice el programa.
-Link Xampp 
+
+_Link Xampp_
 ```
 (https://www.apachefriends.org/docs/)
 ```
-Link WampServer 
+_Link WampServer_ 
 ```
 (https://www.wampserver.com/en/category/documentation-en/)
 ```
 
-Instalar Node Js
+_Instalar Node Js_
+
 Para la parte front vamos a requerir instalar Node Js, esto para poder usar el framework React Js para el Frontend. Se requiere una versión arriba de 16.04.
 Link Node JS 
 ```
@@ -34,14 +38,16 @@ Link Node JS
 ```
 
 
-Instalar Npm
+_Instalar Npm_
+
 Tambien para nuestro Frontend, requerimos del paquete de instalación NPM, en su versión 8.1.2 o superior.
 Link para instalación 
 ```
 (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 ```
 
-Instalar Laravel 9
+_Instalar Laravel 9_
+
 Debemos abrir una linea comados, y en esta, ejecutar el sigiente comando
 ```
 composer global require laravel/installer
@@ -52,100 +58,123 @@ https://laravel.com/docs/7.x/installation
 ```
 
 
-Instalar Postgresql
+_Instalar Postgresql_
+
 Para este proyecto se instaló la versión 15, el backup de la base de datos esta en esa versión, pero si lo prefiere puede usar la versión de Postgresql
 u otro gestor de base de datos que prefiera, solo debe configurar el archivo .ENV, el cuál se explica en este documento.
-Link de instalación
+_Link de instalación_
 ```
 https://laravel.com/docs/7.x/installation
 ```
 
+_Instalar GIT_
 
-
-### Instalación 🔧
-
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
-
+Para poder clonar el repositorio, modificar, y crear versiones, utilizaremos Git y GitHub, para esto es necesario instalarlo de manera local, en el siguiente link podrá seguir el paso a paso para su instalación.
 ```
-Da un ejemplo
+https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git
 ```
 
-_Y repite_
+
+## Instalación 🔧
+
+_Clonar Repositorio_
+
+_Vaya al carpeta donde instaló el software para el servidor Apache_
+
+Para Xampp seria:
+```
+C:\xampp\htdocs
+```
+Para WampServer:
+```
+C:\wamp64\www
+```
+_Abrimos una terminal de comandos o CMD, luego en ella, clonamos el repositorio con la siguiente instrucción_
+```
+git clone https://github.com/brian623/poryectoHoteles.git
+```
+_Allí quedarán todos los archivos de nuestro aplicativo, junto con el backup de la base de datos_
+_Abra pgAdmin4, para gestionar la base de datos, en la carpeta BD de nuestro proyecto, encontrará un archivo llamado "crud_hotels.sql", este es el backup_
+_En pgAdmin vamos a crear la BD así:_
+
+![image](https://user-images.githubusercontent.com/48931107/228146539-7f51bae5-832a-463e-a968-92af656431e4.png)
+
+![image](https://user-images.githubusercontent.com/48931107/228150109-569483ad-08e0-4afd-a1c4-10c741e9fc38.png)
+
+_Ya creada la base de datos, procedemos a restaurarla de la siguiente forma:_
+
+![image](https://user-images.githubusercontent.com/48931107/228150308-2ffbf5b3-04c6-4661-a33f-5ce46ba4f1bc.png)
+
+![image](https://user-images.githubusercontent.com/48931107/228149560-5ed86f6a-0118-4633-9ec5-df8c48326f34.png)
+
+_Listo!! Nuestra base datos ya esta restaurada para usar en nuestro proyecto_
+
+#### Instalar dependencias y  ⚙️
+
+_Abrimos una terminal o consola de comandos y ejecutamos:
+```
+composer instal
+npm install
+```
+
+#### Configurar conexión entre BD y Laravel ⚙️
+
+_Para configurar la conexión a la base de datos con Laravel, vaya a la carpeta del proyecto y luego a la carpeta crud_hoteles, que es la carpeta con nuestro backend_
+_luego abra el arcivo_ .env.example _y le cambiamos el nombre a_ .env 
+_luego editará las siguientes lineas, poniendo como contraseña la configurada al momento de instalar_ Postgresql
 
 ```
-hasta finalizar
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=crud_hotels
+DB_USERNAME=postgres
+DB_PASSWORD= **Tu contraseña**
+```
+_Luego generamos una clave para nuestra_ API_KEY _asi:_
+```
+php artisan key:generate
+```
+#### Ejecutar migraciones ⚙️
+_Las migraciones son la ejecución que almacena la información a la base de datos, para conectarlas basta con ejecutar el siguiente comando:_
+```
+php artisan migrate
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+#### Ejecutar API 🔩
 
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
+_Luego de configurar la base de datos, podemos ejecutar la APIREST creada desde Laravel, para esto, ejecute lo siguiente:_
 
 ```
-Da un ejemplo
+php artisan serve
 ```
 
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
 
 ## Despliegue 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
-
+_Ya con la API ejecutandose, podemos ejecutar nuestro aplicativo web, para esot vaya a la carpeta_ view_hotels _dentro del proyecto y abra una terminal y ejecute:_
+```
+npm install
+```
+_Esto instalará las dependencias necesarias para el aplicativo realizado con React, luego para ejecutarlo y abrirlo en el navegador ejecute:_
+```
+npm start
+```
+_Abra su navegador y en una pestaña vaya a:_
+```
+http://localhost:3000/
+```
+#Todo listo! Ya puedes usar la aplicación!
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+* [PostgreSql] (https://www.postgresql.org/) - Gestor de Bases de Datos
+* [ReactJs] (https://es.reactjs.org/) - Framework FrontEnd
+* [Laravel] (https://laravel.com/) - Framework Backend
 
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-* etc.
+* **Brian Rincón Daza** - ([https://github.com/villanuevand](https://github.com/brian623))
 
 
-
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
