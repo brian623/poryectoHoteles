@@ -119,7 +119,7 @@ _Listo!! Nuestra base datos ya esta restaurada para usar en nuestro proyecto_
 
 _Abrimos una terminal o consola de comandos y ejecutamos:
 ```
-composer instal
+composer install
 npm install
 ```
 
